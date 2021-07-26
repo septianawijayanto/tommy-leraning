@@ -34,20 +34,20 @@
 								<!--p class="lead">LOGIN</p-->
 							</div>
 							<form class="form-auth-small" action="/postlogin" method="POST">
-                                {{csrf_field()}}
+								{{csrf_field()}}
 								<div class="form-group">
-									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input name="email" type="email" class="form-control" id="signin-email" placeholder="Email">
+									<label for="signin-email" class="control-label sr-only">Username</label>
+									<input name="username" type="text" class="form-control" id="signin-email" placeholder="Username">
 								</div>
 								<div class="form-group">
 									<label for="signin-password" class="control-label sr-only">Password</label>
 									<input name="password" type="password" class="form-control" id="signin-password" placeholder="Password">
 								</div>
 								<div class="form-group clearfix">
-									
+
 								</div>
 								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
-								
+
 							</form>
 						</div>
 					</div>

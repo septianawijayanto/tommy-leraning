@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('check', function (Request $request) {
     dd($request->user->role);
@@ -88,8 +89,9 @@ Route::group(['prefix' => 'guru', 'middleware' => ['checkRole:guru']], function 
     Route::get('tugas/edit/{id}', 'TugasController@edit');
     Route::put('tugas/update/{id}', 'TugasController@update');
 
-    Route::get('tugasyangdikerjakan/index', 'TugasyangdikerjakanController@index'); 
-    Route::post('tugasyangdikerjakan/nilai/{id}', 'TugasyangdikerjakanController@nilai'); 
+    Route::get('tugasyangdikerjakan/index', 'TugasyangdikerjakanController@index');
+    Route::get('tugasyangdikerjakan/cetak', 'TugasyangdikerjakanController@cetak');
+    Route::post('tugasyangdikerjakan/nilai/{id}', 'TugasyangdikerjakanController@nilai');
 
     Route::get('manajemenkuis/index', 'ManajemenKuisController@index');
     Route::get('manajemenkuis/tambah', 'ManajemenKuisController@tambah');
@@ -122,7 +124,6 @@ Route::prefix('siswa')->middleware('auth', 'checkRole:siswa')->group(function ()
         Route::get('kuis/{id}/kerjakan', 'KuisController@kerjakan');
         Route::post('kuis/{id}/kerjakan', 'KuisController@simpan');
     });
-
 });
 
 

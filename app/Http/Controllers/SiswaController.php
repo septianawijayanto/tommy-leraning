@@ -33,6 +33,7 @@ class SiswaController extends Controller
                 'agama' => 'required',
                 // 'kelas' => 'required',
                 'email' => 'required',
+                'username' => 'required'
             ]
         );
 
@@ -40,6 +41,7 @@ class SiswaController extends Controller
         $user = new \App\user;
         $user->role = 'siswa';
         $user->name = $request->nama_siswa;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = bcrypt('siswa');
         $user->remember_token = str_random(100);
@@ -80,6 +82,7 @@ class SiswaController extends Controller
                 'agama' => 'required',
                 // 'kelas' => 'required',
                 'email' => 'required',
+                'username' => 'required'
             ]
         );
 
@@ -96,6 +99,8 @@ class SiswaController extends Controller
         $request->request->remove('password');
 
         \App\User::where('id', $user_id)->update(['email' => $request->email]);
+
+        \App\User::where('id', $user_id)->update(['username' => $request->username]);
 
         $siswa->update($request->all());
         return redirect('admin/siswa/index')->with('pesan', 'Data sudah di ubah');

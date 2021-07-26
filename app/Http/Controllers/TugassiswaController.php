@@ -13,10 +13,10 @@ class TugassiswaController extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
-        $siswa_id = \App\Siswa::where('user_id',$user_id)->first()->id;
-        $kelas_id = \App\Kelas_siswa::where('siswa_id',$siswa_id)->first()->kelas_id;
+        $siswa_id = \App\Siswa::where('user_id', $user_id)->first()->id;
+        $kelas_id = \App\Kelas_siswa::where('siswa_id', $siswa_id)->first()->kelas_id;
         $kelas = \App\Kelas::findOrFail($kelas_id);
-        $kelas_mapel = \App\KelasMapel::where('kelas_id',$kelas->id)->pluck('id');
+        $kelas_mapel = \App\KelasMapel::where('kelas_id', $kelas->id)->pluck('id');
 
         $tugas = \App\Tugas::whereIn('kelas_mapel_id', $kelas_mapel)->get();
         $data['tugas'] = $tugas;
@@ -27,7 +27,7 @@ class TugassiswaController extends Controller
     {
         $id_user = Auth::user()->id;
         $data['obj']            =  new \App\Tugasygdikerjakan();
-        $data['action']         = ['TugassiswaController@simpan',$id];
+        $data['action']         = ['TugassiswaController@simpan', $id];
         $data['btn_submit']     = 'SIMPAN';
         $data['method']         = "POST";
         $data['id_tugas']       = $id;

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Tugasdikerjakan;
 use Illuminate\Http\Request;
+use PDF;
 
 class TugasyangdikerjakanController extends Controller
 {
@@ -17,7 +19,8 @@ class TugasyangdikerjakanController extends Controller
         return view('tugasyangdikerjakan', $data);
     }
 
-    public function nilai(Request $request, $id){
+    public function nilai(Request $request, $id)
+    {
         $validasi = $this->validate(
             $request,
             [
@@ -27,7 +30,13 @@ class TugasyangdikerjakanController extends Controller
 
         $tugas = \App\Tugasdikerjakan::findOrFail($id)->update(['nilai' => $request->nilai]);
         return redirect('guru/tugasyangdikerjakan/index')->with('pesan', 'Tugas Siswa berhasil dinilai!');
+    }
+    public function cetak()
+    {
 
-
+        $tgl = date('d F Y');
+        $data = Tugasdikerjakan::get();
+        $pdf = PDF::loadview('cetaknilai', compact('data', 'tgl'))->setPaper('a4', 'landscape');
+        return $pdf->stream('nilai' . date('Y-m-d_H:i:s') . '.pdf');
     }
 }

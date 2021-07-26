@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Guru;
+use App\User;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -32,7 +33,8 @@ class GuruController extends Controller
                 'tanggal_lahir' => 'required',
                 'jenis_kelamin' => 'required',
                 'agama' => 'required',
-                'email' => 'required'
+                'email' => 'required',
+                'username' => 'required'
             ]
         );
 
@@ -40,6 +42,7 @@ class GuruController extends Controller
         $user = new \App\user;
         $user->role = 'guru';
         $user->name = $request->nama_guru;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = bcrypt('guru');
         $user->remember_token = str_random(100);
@@ -64,6 +67,7 @@ class GuruController extends Controller
         $data['obj']     = \App\Guru::findOrFail($id);
         $data['method']     = "PUT";
         $data['btn_submit'] = "UPDATE";
+        // $data['username'] = User::find($id);
         $data['action']     = array('GuruController@update', $id);
         return view('guru_form', $data);
     }
@@ -78,7 +82,8 @@ class GuruController extends Controller
                 'tanggal_lahir' => 'required',
                 'jenis_kelamin' => 'required',
                 'agama' => 'required',
-                'email' => 'required'
+                'email' => 'required',
+                'username' => 'required'
             ]
         );
         $guru = \App\Guru::findOrFail($id);
@@ -90,10 +95,10 @@ class GuruController extends Controller
             $password = bcrypt($password);
             \App\User::where('id', $user_id)->update(['password' => $password]);
         }
-
         $request->request->remove('password');
-
         \App\User::where('id', $user_id)->update(['email' => $request->email]);
+
+        \App\User::where('id', $user_id)->update(['username' => $request->username]);
         $guru->update($request->all());
         return redirect('admin/guru/index')->with('pesan', 'Data sudah di ubah');
     }
