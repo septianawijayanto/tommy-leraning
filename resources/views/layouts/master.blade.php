@@ -89,8 +89,8 @@
           <li><a href="{{url('guru/dashboard')}}"><i class="fa fa-dashboard"></i> <span>DASHBOARD</span></a></li>
           <li><a href="{{url('guru/tugas/index',[])}}"><i class="fa fa-book"></i> <span>TUGAS</span></a></li>
           <li><a href="{{url('guru/tugasyangdikerjakan/index',[])}}"><i class="fa fa-book"></i> <span>TUGAS YANG DIKERJAKAN</span></a></li>
-          <li><a href="{{url('guru/manajemenkuis/index',[])}}"><i class="fa fa-book"></i> <span>KUIS</span></a></li>
-          <li><a href="{{url('guru/kuisyangdikerjakan/index',[])}}"><i class="fa fa-book"></i> <span>KUIS YANG DIKERJAKAN</span></a></li>
+          <li><a href="{{url('guru/manajemenkuis/index',[])}}"><i class="fa fa-book"></i> <span>UJIAN/KUIS</span></a></li>
+          <li><a href="{{url('guru/kuisyangdikerjakan/index',[])}}"><i class="fa fa-book"></i> <span>UJIAN/KUIS DIKERJAKAN</span></a></li>
           <li><a href="{{url('guru/materi/index',[])}}"><i class="fa fa-book"></i> <span>DATA MATERI</span></a></li>
           <!--li><a href=""><i class="fa fa-users"></i> <span>KELAS</span></a></li>
         <li><a href=""><i class="fa fa-book"></i> <span>MATERI</span></a></li-->
@@ -110,7 +110,7 @@
           <li><a href="{{url('siswa/kelas/index',[])}}"><i class="fa fa-users"></i> <span>KELAS</span></a></li>
           <li><a href="{{url('siswa/materi/index',[])}}"><i class="fa fa-book"></i> <span>MATERI</span></a></li>
           <li><a href="{{url('siswa/tugas/index',[])}}"><i class="fa fa-book"></i> <span>TUGAS</span></a></li>
-          <li><a href="{{url('siswa/kuis/index',[])}}"><i class="fa fa-book"></i> <span>KUIS</span></a></li>
+          <li><a href="{{url('siswa/kuis/index',[])}}"><i class="fa fa-book"></i> <span>UJIAN/KUIS</span></a></li>
           @else
           <li><a href="{{url('siswa/join/index',[])}}"><i class="fa fa-users"></i> <span>JOIN KELAS</span></a></li>
 

@@ -33,6 +33,14 @@
 								<div class="logo text-center">SMP XAVERIUS 2 JAMBI</div>
 								<!--p class="lead">LOGIN</p-->
 							</div>
+
+							@if($message=Session::get('sukses'))
+							<div class="alert alert-success alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<i class="fa fa-check-circle"></i> {{$message}}
+							</div>
+							@endif
+
 							<form class="form-auth-small" action="/postlogin" method="POST">
 								{{csrf_field()}}
 								<div class="form-group">

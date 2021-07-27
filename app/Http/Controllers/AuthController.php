@@ -19,11 +19,11 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('username', 'password'))) {
             $role = auth()->user()->role;
             if ($role == 'admin') {
-                return redirect('admin/dashboard');
+                return redirect('admin/dashboard')->with('pesan', 'Anda Berhasil Login Kesistem');
             } elseif ($role == 'siswa') {
-                return redirect('siswa/dashboard');
+                return redirect('siswa/dashboard')->with('pesan', 'Anda Berhasil Login Kesistem');
             } elseif ($role == 'guru') {
-                return redirect('guru/dashboard');
+                return redirect('guru/dashboard')->with('pesan', 'Anda Berhasil Login Kesistem');
             }
         }
         return redirect('/login');
@@ -31,6 +31,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/login')->with('sukses', 'Anda Berhasil Keluar dari sistem');
     }
 }

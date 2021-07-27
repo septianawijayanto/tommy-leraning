@@ -1,4 +1,4 @@
-@extends('layouts.master') 
+@extends('layouts.master')
 @section('content')
 <div class="main">
     <div class="main-content">
@@ -19,6 +19,7 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th class="text-center">No</th>
+                                            <th class="text-center">Jenis</th>
                                             <th class="text-center">Keterangan</th>
                                             <th class="text-center">Mata Pelajaran</th>
                                             <th class="text-center">Kelas</th>
@@ -30,16 +31,17 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($kuisdikerjakan as $item)
-                                            <tr>
-                                                <td class="text-center" scope="row">{{ $loop->iteration }}</td>
-                                                <td class="text-center">{{ $item->kuis->keterangan}}</td>
-                                                <td class="text-center">{{ $item->kuis->kelasmapel->mapel->nama_pelajaran}}</td>
-                                                <td class="text-center">{{ $item->kuis->kelasmapel->kelas->nama_kelas}}</td>
-                                                <td class="text-center">{{ $item->siswa->nama_siswa}}</td>
-                                                <td class="text-center">{{ $item->nilai }}</td>
-                                                <td class="text-center">{{ $item->benar }}</td>
-                                                <td class="text-center">{{ $item->salah }}</td>
-                                            </tr>
+                                        <tr>
+                                            <td class="text-center" scope="row">{{ $loop->iteration }}</td>
+                                            <td class="text-center">{{ $item->kuis->jenis}}</td>
+                                            <td class="text-center">{{ $item->kuis->keterangan}}</td>
+                                            <td class="text-center">{{ $item->kuis->kelasmapel->mapel->nama_pelajaran}}</td>
+                                            <td class="text-center">{{ $item->kuis->kelasmapel->kelas->nama_kelas}}</td>
+                                            <td class="text-center">{{ $item->siswa->nama_siswa}}</td>
+                                            <td class="text-center">{{ $item->nilai }}</td>
+                                            <td class="text-center">{{ $item->benar }}</td>
+                                            <td class="text-center">{{ $item->salah }}</td>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -53,4 +55,3 @@
 </div>
 
 @endsection
-
