@@ -60,7 +60,7 @@
 						</div>
 					</div>
 					<div class="right">
-						<div class="overlay"></div>
+						<div class=""></div>
 						<div class="content text">
 							<h1 class="heading">SMP XAVERIUS 2 JAMBI</h1>
 							<p></p>
