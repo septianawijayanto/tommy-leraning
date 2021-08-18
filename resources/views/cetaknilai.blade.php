@@ -62,8 +62,8 @@
         }
 
         img {
-            width: 90px;
-            height: 90px;
+            width: 120px;
+            height: 120px;
             border-radius: 100%;
         }
 
@@ -110,7 +110,45 @@
 </head>
 
 <body>
-    <h1 class="center">SMP Xavirius 2 Jambi</h1>
+    <table class="center">
+        <tr>
+            <td rowspan="6" class="center" style="border: 0px;">
+                <img src="gambar/logo.jpg" class="center" class="img img-responsive">
+            </td>
+            <td style="border: 0px;">
+                <b>KOORDINATORAT SEKOLAH XAVERIUS JAMBI-KA. TUNGKAL</b>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0px;">
+                <b style="font-size: 30px;">SMP XAVERIUS 2</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0px;">
+                <b> NDS : J. 06014010 NSS : 302106001050 TERAKREDITASI : A</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0px;">
+                <b> JALAN MELUR I NO. 23 RT.16 RW.06 +6274161975
+                </b>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0px;">
+                <b><i> <u>Email : xavdajambi@yahoo.co.id</u></i>
+                </b>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0px;">
+                <b> KOTA JAMBI 36124
+                </b>
+            </td>
+        </tr>
+    </table>
     <hr>
     <h5 class="center"><u> LAPORAN NILAI TUGAS</u></h5>
     <table id="pseudo-demo">
